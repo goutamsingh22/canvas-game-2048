@@ -1,0 +1,24 @@
+{
+  "name": "canvas-2048",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "A polished 2048 game built with vanilla JavaScript, HTML Canvas, and Vitest.",
+  "scripts": {
+    "start": "npx --yes serve . -l 3000",
+    "dev": "npx --yes serve . -l 3000",
+    "test": "vitest run",
+    "test:watch": "vitest"
+  },
+  "keywords": [
+    "2048",
+    "game",
+    "canvas",
+    "javascript",
+    "vitest"
+  ],
+  "license": "MIT",
+  "devDependencies": {
+    "vitest": "^5.1.0"
+  }
+}

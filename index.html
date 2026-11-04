@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <title>2048 · Canvas</title>
+    <meta
+      name="description"
+      content="A polished 2048 game built with vanilla JavaScript and HTML Canvas."
+    />
+    <meta name="theme-color" content="#0f1115" />
+    <link
+      rel="icon"
+      href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23bbada0'/%3E%3Crect x='8' y='8' width='48' height='48' rx='10' fill='%23edc22e'/%3E%3Ctext x='32' y='43' font-family='Arial' font-size='26' font-weight='700' text-anchor='middle' fill='%232b1d10'%3E2%3C/text%3E%3C/svg%3E"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="app">
+      <header class="topbar">
+        <div class="brand">
+          <h1>2048</h1>
+          <p>Join the tiles and reach <strong>2048</strong>.</p>
+        </div>
+        <div class="scores" aria-live="polite">
+          <div class="score-card">
+            <span class="score-card__label">Score</span>
+            <strong class="score-card__value" id="score">0</strong>
+            <span class="score-gain" id="score-gain" aria-hidden="true"></span>
+          </div>
+          <div class="score-card score-card--best">
+            <span class="score-card__label">Best</span>
+            <strong class="score-card__value" id="best">0</strong>
+          </div>
+        </div>
+      </header>
+
+      <section class="toolbar" aria-label="Game controls">
+        <div class="toolbar__buttons">
+          <button id="new-game" class="btn btn--primary" type="button">New game</button>
+          <button id="undo" class="btn" type="button" disabled>Undo</button>
+        </div>
+        <p class="hint">
+          Swipe or use
+          <kbd>&larr;</kbd><kbd>&uarr;</kbd><kbd>&darr;</kbd><kbd>&rarr;</kbd>
+        </p>
+      </section>
+
+      <div class="board-wrap">
+        <canvas id="board" width="480" height="480" aria-label="2048 game board" role="img">
+          Your browser does not support the canvas element.
+        </canvas>
+
+        <div id="overlay" class="overlay" hidden>
+          <div
+            class="overlay__card"
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="overlay-title"
+            aria-describedby="overlay-text"
+          >
+            <p id="overlay-kicker" class="overlay__kicker"></p>
+            <h2 id="overlay-title"></h2>
+            <p id="overlay-text" class="overlay__text"></p>
+            <div class="overlay__actions">
+              <button id="overlay-primary" class="btn btn--primary" type="button"></button>
+              <button id="overlay-secondary" class="btn" type="button"></button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer class="footer">
+        <p>
+          <strong>How to play:</strong> slide all tiles in one direction. Equal tiles merge and
+          score their combined value.
+        </p>
+        <p class="footer__meta">
+          Arrow keys, WASD, or swipe · <kbd>Z</kbd> undo · <kbd>R</kbd> restart
+        </p>
+      </footer>
+    </main>
+
+    <script type="module" src="src/main.js"></script>
+  </body>
+</html>
